@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My name is Shiv. I am a Software Developer.">
+    <title>@ViewData["Title"] - Shiv Patel</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="test2">
+        <div class="navigation">
+            <div class="menu_toggle" id="menutoggle"></div>
+            <div class="profile">
+                <div class="imgBx">
+                    <img src="/images/IMG-20190324-WA0005.jpg" alt="Sorry! There was an issue!">
+                </div>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a class="navlink" href="@Url.Action("Index", "Home")">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="navlink"  href="@Url.Action("Projects", "Home")">
+                        <span class="icon"><ion-icon name="book-outline"></ion-icon></span>
+                        <span class="text">Portfolio</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="navlink"  href="https://github.com/taekionic">
+                        <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
+                        <span class="text">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="navlink"  href="#">
+                        <span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span>
+                        <span class="text">LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="navlink"  href="@Url.Action("About", "Home")">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></ion-icon></span>
+                        <span class="text">About Me</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container portfolio transition-fade" id="swup">
+            @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+    <script>
+        const swup = new Swup();
+
+        document.addEventListener('swup:contentReplaced', (event) => {
+            setTimeout(function() {
+                $('#portfolio').css("opacity","0")
+                setTimeout(function() {
+                    window.top.location.reload()
+                }, 200)
+               
+            }, 400)
+        });
+    </script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
